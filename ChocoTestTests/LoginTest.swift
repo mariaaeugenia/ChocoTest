@@ -1,15 +1,14 @@
 //
-//  ChocoTestTests.swift
+//  LoginTest.swift
 //  ChocoTestTests
 //
-//  Created by Maria Eugênia Pereira Teixeira on 19/01/20.
+//  Created by Maria Eugênia Pereira Teixeira on 21/01/20.
 //  Copyright © 2020 Maria Eugênia Pereira Teixeira. All rights reserved.
 //
 
 import XCTest
-@testable import ChocoTest
 
-class ChocoTestTests: XCTestCase {
+class LoginTest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
