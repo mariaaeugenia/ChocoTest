@@ -18,7 +18,7 @@ struct LoginRepository: Repository {
         self.login = login
     }
     
-    func request(completion: @escaping (Result<LoginRepository.T>) -> Void) {
+    func request(completion: @escaping (Result<Token>) -> Void) {
         guard let email = login?.email, let pwd = login?.password else { return }
         request.manager(api: .login(username: email, password: pwd), completion: completion)
     }

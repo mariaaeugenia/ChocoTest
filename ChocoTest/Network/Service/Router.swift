@@ -33,13 +33,14 @@ class Router<E: Endpoint>: NetworkRouter {
     
     private func buildRoute(from endpoint: E) throws -> URLRequest {
         var request = URLRequest(url: endpoint.baseURL.appendingPathComponent(endpoint.path), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = endpoint.method.rawValue
         do {
             switch endpoint.task {
             case .requestWith(let parameters):
                 try self.configureParameters(parameters: parameters, request: &request)
-            default:
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            case .requestWithURL(let url):
+                try self.configureUrl(url: url, request: &request)
             }
             return request
         } catch {
@@ -51,6 +52,16 @@ class Router<E: Endpoint>: NetworkRouter {
         do {
             if let params = parameters {
                 try JSONParameterEncoder.encode(urlRequest: &request, with: params)
+            }
+        } catch {
+            throw error
+        }
+    }
+    
+    private func configureUrl(url: Parameters?, request: inout URLRequest) throws {
+        do {
+            if let params = url {
+                try URLParameterEncoder.encode(urlRequest: &request, with: params)
             }
         } catch {
             throw error

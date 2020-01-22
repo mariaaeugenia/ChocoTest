@@ -9,6 +9,6 @@
 import Foundation
 
 public enum HTTPTask {
-    case request
+    case requestWithURL(url: Parameters)
     case requestWith(parameters: Parameters)
 }

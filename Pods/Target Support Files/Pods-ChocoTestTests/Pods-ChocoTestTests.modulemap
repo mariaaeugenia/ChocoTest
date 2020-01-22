@@ -1,0 +1,6 @@
+framework module Pods_ChocoTestTests {
+  umbrella header "Pods-ChocoTestTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

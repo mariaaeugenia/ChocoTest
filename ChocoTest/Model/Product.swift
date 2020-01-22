@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias Products = [Product]
+
 struct Product: Decodable {
     let guid: String?
     let name: String?

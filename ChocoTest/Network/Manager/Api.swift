@@ -26,8 +26,8 @@ extension Api: Endpoint {
         switch self {
         case .login(_, _):
             return "login"
-        case.products(let token):
-            return "products?token=\(token)"
+        case.products(_):
+            return "products"
         }
     }
     
@@ -44,8 +44,8 @@ extension Api: Endpoint {
         switch self {
         case .login(let username,let password):
             return .requestWith(parameters: ["email": username, "password": password])
-        default:
-            return .request
+        case .products(let token):
+            return .requestWithURL(url: ["token":token])
         }
     }
 }
