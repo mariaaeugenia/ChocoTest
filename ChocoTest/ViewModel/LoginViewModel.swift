@@ -8,18 +8,38 @@
 
 import Foundation
 
+protocol LoginDisplayLogic {
+    func setLoading(isLoading: Bool)
+    func presentError(message: String)
+}
+
 class LoginViewModel {
 
+    var delegate: LoginDisplayLogic?
     
-    func performLogin(with email: String, and password: String) {
+    var email = ""
+    var password = ""
+    
+    func buttonEnabled() -> Bool {
+        if email.isEmpty || password.isEmpty {
+            return false
+        }
+        return true
+    }
+    
+    func performLogin() {
+        delegate?.setLoading(isLoading: true)
         let login = Login(email: email, password: password)
         let repo = LoginRepository(login: login)
         repo.request { result in
+            self.delegate?.setLoading(isLoading: false)
             switch result {
             case .success(let token):
-                print("TOKEN: \(token.token ?? "")")
+                if let tkn = token.token {
+                    UserDefaults.standard.set(tkn, forKey: "token")
+                }
             case .failure(let error):
-                print("TOKEN: \(error)")
+                self.delegate?.presentError(message: error )
             }
             
         }
