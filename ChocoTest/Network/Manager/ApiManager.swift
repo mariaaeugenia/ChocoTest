@@ -15,7 +15,6 @@ class ApiManager {
     func manager<T>(api: Api, completion: @escaping (Result<T>) -> Void) where T : Decodable {
         
         router.route(api) { data, response, error in
-            
             if error != nil {
                 completion(.failure(NetworkError.other.rawValue))
             }

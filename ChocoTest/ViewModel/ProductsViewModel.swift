@@ -14,7 +14,6 @@ protocol ProductsPresentable {
 }
 
 class ProductsViewModel {
-    typealias T = Product
     var numberOfRows = 0
     
     var repo = ProductsRepository()
@@ -24,11 +23,16 @@ class ProductsViewModel {
     
     init() {}
     
-    func getProducts() {
+    func viewModelDidLoad() {
+        getProducts()
+    }
+    
+    private func getProducts() {
         repo.request { [weak self] (result) in
             switch result {
             case .success(let list):
-                self?.products = list
+                self?.products.append(contentsOf: list)
+                self?.numberOfRows = list.count
                 self?.delegate?.presentList()
             case .failure(let error):
                 self?.delegate?.presentError(message: error)
@@ -36,8 +40,10 @@ class ProductsViewModel {
         }
     }
     
-    func cellForIndex(index: Int) -> Product {
-        return products[index]
+    func cellForIndex(index: Int) -> ProductCellViewModel {
+        let product = products[index]
+        let vm = ProductCellViewModel(photo: product.picture, name: product.name, price: product.price, shouldHideButton: false)
+        return vm
     }
     
     func didSelectedItem(index: Int) {

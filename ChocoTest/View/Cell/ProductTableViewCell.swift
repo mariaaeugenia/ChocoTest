@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class ProductTableViewCell: UITableViewCell {
 
@@ -23,10 +22,10 @@ class ProductTableViewCell: UITableViewCell {
     }
     
     func configureCell(viewModel: ProductCellViewModel) {
-        if let url = URL(string: viewModel.photo) {
-            productImageView.kf.setImage(with: url)
-        }
-        nameLabel.text = viewModel.name
+        let path = viewModel.getPhoto()
+        let url = URL(string: path)
+        productImageView.load(url: url, placeholder: "placeholder")
+        nameLabel.text = viewModel.getName()
         priceLabel.text = viewModel.priceCurreny()
     }
 

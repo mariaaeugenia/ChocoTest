@@ -157,10 +157,25 @@
                     <view key="view" contentMode="scaleToFill" id="VJj-Mj-epQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oze-rf-5ws">
+                                <rect key="frame" x="0.0" y="91" width="320" height="428"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oze-rf-5ws" firstAttribute="leading" secondItem="SGa-uC-mrv" secondAttribute="leading" id="HEn-l6-J6B"/>
+                            <constraint firstItem="oze-rf-5ws" firstAttribute="bottom" secondItem="SGa-uC-mrv" secondAttribute="bottom" id="HXs-it-X7s"/>
+                            <constraint firstItem="oze-rf-5ws" firstAttribute="trailing" secondItem="SGa-uC-mrv" secondAttribute="trailing" id="bxq-vg-iRI"/>
+                            <constraint firstItem="oze-rf-5ws" firstAttribute="top" secondItem="SGa-uC-mrv" secondAttribute="top" id="ysF-5b-O8D"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SGa-uC-mrv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="DQA-LS-xXw"/>
+                    <connections>
+                        <outlet property="tableView" destination="oze-rf-5ws" id="efc-cP-7eR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45W-O8-UX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

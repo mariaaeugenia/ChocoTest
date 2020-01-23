@@ -76,7 +76,7 @@
                 <outlet property="addButton" destination="12T-rV-Znn" id="1Gb-ec-Yyg"/>
                 <outlet property="nameLabel" destination="pT0-W9-Dzc" id="bAq-WG-6pG"/>
                 <outlet property="priceLabel" destination="CDi-P4-itq" id="z7Z-7N-x9l"/>
-                <outlet property="productImageView" destination="yB5-Hf-Zy0" id="kAu-bZ-a2h"/>
+                <outlet property="productImageView" destination="yB5-Hf-Zy0" id="CR0-Be-JHh"/>
             </connections>
             <point key="canvasLocation" x="115" y="96"/>
         </tableViewCell>

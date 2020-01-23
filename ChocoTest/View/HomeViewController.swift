@@ -9,31 +9,50 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    let viewModel = ProductsViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let tableView = ProductsTableView()
-        self.view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
-        tableView.setupTableView()
-        
-        
+        setupTableView()
+        viewModel.delegate = self
+        viewModel.viewModelDidLoad()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupTableView() {
+        let nib = UINib(nibName: "ProductTableViewCell",bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "CELL")
+        tableView.estimatedRowHeight = 80
+        tableView.delegate = self
+        tableView.dataSource = self
     }
-    */
 
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRows
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as? ProductTableViewCell else { return UITableViewCell() }
+        let vm = viewModel.cellForIndex(index: indexPath.row)
+        cell.configureCell(viewModel: vm)
+        return cell
+    }
+}
+
+extension HomeViewController: ProductsPresentable {
+    func presentError(message: String) {
+        //TODO: ALERT
+    }
+    
+    func presentList() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
