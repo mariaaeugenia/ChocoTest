@@ -11,6 +11,7 @@ import Foundation
 protocol ProductsPresentable {
     func presentList()
     func presentError(message: String)
+    func presentProductCount(count: Int)
 }
 
 class ProductsViewModel {
@@ -46,9 +47,19 @@ class ProductsViewModel {
         return vm
     }
     
-    func didSelectedItem(index: Int) {
+    func didSelectItem(index: Int) {
         let prod = products[index]
         productsSelected.append(prod)
+        delegate?.presentProductCount(count: productsSelected.count)
     }
+    
+    func didDeselectItem(index: Int) {
+        let prod = products[index]
+        if let prodIndex = productsSelected.firstIndex(where: { $0.guid == prod.guid }) {
+            productsSelected.remove(at: prodIndex)
+            delegate?.presentProductCount(count: productsSelected.count)
+        }
+    }
+
     
 }

@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
     func setupTableView() {
         let nib = UINib(nibName: "ProductTableViewCell",bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CELL")
-        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = 80
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -35,6 +35,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let closeAction = UIContextualAction(style: .normal, title:  "ADD", handler: { [weak self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            self?.viewModel.didSelectItem(index: indexPath.row)
+            success(true)
+        })
+        closeAction.backgroundColor = UIColor(hexString: "007AFF")
+        return UISwipeActionsConfiguration(actions: [closeAction])
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let modifyAction = UIContextualAction(style: .normal, title:  "Delete", handler: { [weak self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            self?.viewModel.didDeselectItem(index: indexPath.row)
+            success(true)
+        })
+        modifyAction.backgroundColor = .red
+    
+        return UISwipeActionsConfiguration(actions: [modifyAction])
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,5 +77,9 @@ extension HomeViewController: ProductsPresentable {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
+    }
+    
+    func presentProductCount(count: Int) {
+        print("COUNT: \(count)")
     }
 }
