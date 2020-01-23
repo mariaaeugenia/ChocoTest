@@ -5,7 +5,7 @@ target 'ChocoTest' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'IQKeyboardManagerSwift'
-  # Pods for ChocoTest
+  pod 'RealmSwift'
 
   target 'ChocoTestTests' do
     inherit! :search_paths

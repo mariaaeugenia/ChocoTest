@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         signInButton.applyGradientLayer()
         handleButtonStatus()
+    
     }
     
     func handleButtonStatus() {

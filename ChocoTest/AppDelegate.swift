@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setup()
         
+        if UserDefaults.standard.value(forKey: "token") != nil {
+            //TODO: CALL MAIN
+        }
+        
         return true
     }
 

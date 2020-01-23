@@ -40,6 +40,10 @@
 		5479EB3523D7E14400E92883 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB3423D7E14400E92883 /* LoginViewModel.swift */; };
 		5479EB3823D7F2AB00E92883 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB3723D7F2AB00E92883 /* UIView+Extensions.swift */; };
 		5479EB3A23D7F37F00E92883 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB3923D7F37F00E92883 /* UIColor+Extensions.swift */; };
+		5479EB3C23D917F300E92883 /* OrderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB3B23D917F300E92883 /* OrderRepository.swift */; };
+		5479EB3E23D9180200E92883 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB3D23D9180200E92883 /* Order.swift */; };
+		5479EB4123D91A3D00E92883 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB4023D91A3D00E92883 /* RealmManager.swift */; };
+		5479EB4323D91E0700E92883 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB4223D91E0700E92883 /* RealmRepository.swift */; };
 		B4C091A82CD6E71657FAF3D4 /* Pods_ChocoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526E561BE182333372834ADB /* Pods_ChocoTest.framework */; };
 		F2EF56A8BDA0C91337B8B949 /* Pods_ChocoTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147C842B1A9CBCD2FAFA1B56 /* Pods_ChocoTestTests.framework */; };
 /* End PBXBuildFile section */
@@ -106,6 +110,10 @@
 		5479EB3423D7E14400E92883 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5479EB3723D7F2AB00E92883 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		5479EB3923D7F37F00E92883 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		5479EB3B23D917F300E92883 /* OrderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRepository.swift; sourceTree = "<group>"; };
+		5479EB3D23D9180200E92883 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		5479EB4023D91A3D00E92883 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		5479EB4223D91E0700E92883 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		587E8322514637723D101135 /* Pods-ChocoTest-ChocoTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTest-ChocoTestUITests.release.xcconfig"; path = "Target Support Files/Pods-ChocoTest-ChocoTestUITests/Pods-ChocoTest-ChocoTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A7B1DE988B8E164BE2FC9E5 /* Pods-ChocoTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTestTests.release.xcconfig"; path = "Target Support Files/Pods-ChocoTestTests/Pods-ChocoTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		A86230949843256F5835347A /* Pods-ChocoTest-ChocoTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTest-ChocoTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChocoTest-ChocoTestUITests/Pods-ChocoTest-ChocoTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,10 +172,11 @@
 		5479EAC223D525ED00E92883 /* ChocoTest */ = {
 			isa = PBXGroup;
 			children = (
+				5479EB3F23D91A2F00E92883 /* Realm */,
 				5479EB3623D7F29500E92883 /* Extensions */,
+				5479EB1223D68A7B00E92883 /* Model */,
 				5479EB3323D7E13800E92883 /* ViewModel */,
 				5479EB2923D7B94600E92883 /* Repository */,
-				5479EB1223D68A7B00E92883 /* Model */,
 				5479EAF323D527C200E92883 /* Network */,
 				5479EAC323D525ED00E92883 /* AppDelegate.swift */,
 				5479EAC723D525ED00E92883 /* LoginViewController.swift */,
@@ -216,6 +225,7 @@
 				5479EB1323D68A8D00E92883 /* Login.swift */,
 				5479EB2C23D7BA8400E92883 /* Token.swift */,
 				5479EB1523D68BC400E92883 /* Product.swift */,
+				5479EB3D23D9180200E92883 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -268,6 +278,7 @@
 				5479EAFE23D529CE00E92883 /* Repository.swift */,
 				5479EB2A23D7B95A00E92883 /* LoginRepository.swift */,
 				5479EB2F23D7D79300E92883 /* ProductsRepository.swift */,
+				5479EB3B23D917F300E92883 /* OrderRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -287,6 +298,15 @@
 				5479EB3723D7F2AB00E92883 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5479EB3F23D91A2F00E92883 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				5479EB4023D91A3D00E92883 /* RealmManager.swift */,
+				5479EB4223D91E0700E92883 /* RealmRepository.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		70E981142FA023527DD16451 /* Frameworks */ = {
@@ -558,6 +578,7 @@
 				5479EB1823D68D5E00E92883 /* ApiManager.swift in Sources */,
 				5479EAC823D525ED00E92883 /* LoginViewController.swift in Sources */,
 				5479EAC423D525ED00E92883 /* AppDelegate.swift in Sources */,
+				5479EB4123D91A3D00E92883 /* RealmManager.swift in Sources */,
 				5479EB1623D68BC400E92883 /* Product.swift in Sources */,
 				5479EAFF23D529CE00E92883 /* Repository.swift in Sources */,
 				5479EB0B23D67C6400E92883 /* JSONParameterEncoder.swift in Sources */,
@@ -565,6 +586,8 @@
 				5479EB2B23D7B95A00E92883 /* LoginRepository.swift in Sources */,
 				5479EB0F23D67DFB00E92883 /* Router.swift in Sources */,
 				5479EB3A23D7F37F00E92883 /* UIColor+Extensions.swift in Sources */,
+				5479EB3E23D9180200E92883 /* Order.swift in Sources */,
+				5479EB4323D91E0700E92883 /* RealmRepository.swift in Sources */,
 				5479EB3023D7D79300E92883 /* ProductsRepository.swift in Sources */,
 				5479EB0723D6791200E92883 /* ParameterEncoding.swift in Sources */,
 				5479EB1E23D7B20500E92883 /* NetworkLog.swift in Sources */,
@@ -577,6 +600,7 @@
 				5479EB2123D7B5CD00E92883 /* NetworkError.swift in Sources */,
 				5479EB0123D52B0A00E92883 /* Constants.swift in Sources */,
 				5479EB0D23D67D0700E92883 /* NetworkRouter.swift in Sources */,
+				5479EB3C23D917F300E92883 /* OrderRepository.swift in Sources */,
 				5479EB3223D7DA3300E92883 /* URLParameterEncode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
