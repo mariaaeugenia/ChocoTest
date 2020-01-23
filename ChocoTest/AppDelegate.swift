@@ -18,8 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setup()
         
-        if UserDefaults.standard.value(forKey: "token") != nil {
-            //TODO: CALL MAIN
+        if UserDefaults.standard.value(forKey: "token") == nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                 self.window?.rootViewController = loginVC
+            }
         }
         
         return true
