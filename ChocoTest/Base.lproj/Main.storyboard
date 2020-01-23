@@ -162,6 +162,31 @@
                                 <rect key="frame" x="0.0" y="91" width="320" height="428"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" id="QhY-M5-apu">
+                                <rect key="frame" x="0.0" y="449" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoI-ka-4PX">
+                                        <rect key="frame" x="16" y="25" width="41" height="22"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcb-bS-VRJ">
+                                        <rect key="frame" x="263" y="25" width="41" height="22"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16078431369999999" green="0.5450980392" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="VoI-ka-4PX" firstAttribute="top" secondItem="QhY-M5-apu" secondAttribute="top" constant="25" id="0uK-w6-5oC"/>
+                                    <constraint firstItem="VoI-ka-4PX" firstAttribute="leading" secondItem="QhY-M5-apu" secondAttribute="leading" constant="16" id="34s-GJ-uYs"/>
+                                    <constraint firstAttribute="trailing" secondItem="xcb-bS-VRJ" secondAttribute="trailing" constant="16" id="WGz-oj-DQo"/>
+                                    <constraint firstItem="xcb-bS-VRJ" firstAttribute="centerY" secondItem="VoI-ka-4PX" secondAttribute="centerY" id="XsA-XU-zRY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -174,7 +199,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="DQA-LS-xXw"/>
                     <connections>
+                        <outlet property="preOrderView" destination="QhY-M5-apu" id="R0M-2d-V2y"/>
                         <outlet property="tableView" destination="oze-rf-5ws" id="efc-cP-7eR"/>
+                        <outlet property="totalItemsLabel" destination="VoI-ka-4PX" id="czS-ub-WUJ"/>
+                        <outlet property="totalValueLabel" destination="xcb-bS-VRJ" id="1Ra-g0-4gu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45W-O8-UX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

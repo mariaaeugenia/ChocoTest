@@ -11,6 +11,9 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var preOrderView: UIView!
+    @IBOutlet weak var totalItemsLabel: UILabel!
+    @IBOutlet weak var totalValueLabel: UILabel!
     
     let viewModel = ProductsViewModel()
 
@@ -80,6 +83,8 @@ extension HomeViewController: ProductsPresentable {
     }
     
     func presentProductCount(count: Int) {
+        totalItemsLabel.text = "TOTAL (\(count) items)"
+        totalValueLabel.text = "12345.90"
         print("COUNT: \(count)")
     }
 }
