@@ -214,21 +214,72 @@
             </objects>
             <point key="canvasLocation" x="3142.5" y="127.8169014084507"/>
         </scene>
-        <!--My Orders-->
-        <scene sceneID="Hfw-5C-dZo">
+        <!--Orders-->
+        <scene sceneID="KQU-Hk-rne">
             <objects>
-                <viewController id="QZd-Kr-pjK" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0vt-T0-ogU">
+                <tableViewController storyboardIdentifier="OrdersTableViewController" id="0Qr-mK-U92" customClass="OrdersTableViewController" customModule="ChocoTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OQY-3a-p4d">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="WgC-9j-J6B"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="My Orders" id="7pG-Ay-n6f"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y3k-gf-pmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CELL" textLabel="Ife-OB-bMI" detailTextLabel="4g0-ib-p0l" style="IBUITableViewCellStyleSubtitle" id="a0H-77-Wcy">
+                                <rect key="frame" x="0.0" y="28" width="320" height="64"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a0H-77-Wcy" id="TEb-dA-zvw">
+                                    <rect key="frame" x="0.0" y="0.0" width="293" height="64"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ife-OB-bMI">
+                                            <rect key="frame" x="16" y="9" width="34.5" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4g0-ib-p0l">
+                                            <rect key="frame" x="16" y="34" width="50" height="19.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Qr-mK-U92" id="svz-o2-BLy"/>
+                            <outlet property="delegate" destination="0Qr-mK-U92" id="Ugu-SK-FeI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Orders" largeTitleDisplayMode="always" id="tO9-aK-DaP"/>
+                    <connections>
+                        <segue destination="GbK-7C-Glz" kind="show" identifier="goToMyOrder" id="4av-WW-ndq"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m8n-hG-wac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3143" y="959"/>
+        </scene>
+        <!--My Order Table View Controller-->
+        <scene sceneID="TWA-pM-zQ6">
+            <objects>
+                <tableViewController storyboardIdentifier="MyOrderTableViewController" hidesBottomBarWhenPushed="YES" id="GbK-7C-Glz" customClass="MyOrderTableViewController" customModule="ChocoTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="piN-oj-6Ro">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="GbK-7C-Glz" id="zyg-WM-fqj"/>
+                            <outlet property="delegate" destination="GbK-7C-Glz" id="EHE-Pt-1Cm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZiB-T8-BPI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3o-0X-3fW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4166" y="959"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Wp6-W3-fOc">
@@ -272,19 +323,20 @@
         <!--Navigation Controller-->
         <scene sceneID="QA8-pl-pQp">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Okq-e7-pQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gK3-N6-hVZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="order" id="Vnh-Ph-Kel"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="HvI-gX-kmv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="QZd-Kr-pjK" kind="relationship" relationship="rootViewController" id="CGw-W5-1rE"/>
+                        <segue destination="0Qr-mK-U92" kind="relationship" relationship="rootViewController" id="FDE-Vk-fgr"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Okq-e7-pQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2145" y="960"/>
         </scene>
