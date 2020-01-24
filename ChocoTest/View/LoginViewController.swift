@@ -55,15 +55,19 @@ extension LoginViewController: UITextFieldDelegate {
 
 extension LoginViewController: LoginDisplayLogic {
     func setLoading(isLoading: Bool) {
-        
+        if isLoading {
+            LoadingView.shared.showLoading()
+        } else {
+            LoadingView.shared.hideLoading()
+        }
     }
     
     func presentError(message: String) {
-        
+        self.presentAlert(title: "Error", message: message, completion:{_ in })
     }
     
     func goToHome() {
-        
+        performSegue(withIdentifier: "goToHome", sender: nil)
     }
     
 }

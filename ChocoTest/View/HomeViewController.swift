@@ -101,7 +101,7 @@ extension HomeViewController: ProductsPresentable, AddButtonPressing {
     }
     
     func presentError(message: String) {
-        //TODO: ALERT
+        self.presentAlert(title: "Error", message: message, completion:{_ in })
     }
     
     func presentList() {

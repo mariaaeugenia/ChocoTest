@@ -144,6 +144,7 @@
                         <outlet property="emailTextField" destination="if6-42-j4P" id="fj8-ae-rde"/>
                         <outlet property="passwordTextField" destination="2E5-d3-K4p" id="sv6-m7-Fai"/>
                         <outlet property="signInButton" destination="grR-mO-CgW" id="U2h-7z-0En"/>
+                        <segue destination="EJJ-gw-kPG" kind="show" identifier="goToHome" id="oA0-qB-ACg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,14 +156,14 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="LZN-7J-72H" customClass="HomeViewController" customModule="ChocoTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VJj-Mj-epQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I35-Zu-RFt">
-                                <rect key="frame" x="0.0" y="91" width="320" height="428"/>
+                                <rect key="frame" x="0.0" y="103" width="320" height="396"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oze-rf-5ws">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="428"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="396"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O9p-MT-7jz">
@@ -219,7 +220,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="OrdersTableViewController" id="0Qr-mK-U92" customClass="OrdersTableViewController" customModule="ChocoTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OQY-3a-p4d">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -267,7 +268,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="MyOrderTableViewController" hidesBottomBarWhenPushed="YES" id="GbK-7C-Glz" customClass="MyOrderTableViewController" customModule="ChocoTest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="piN-oj-6Ro">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <connections>
@@ -286,6 +287,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="EJJ-gw-kPG" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="QaN-gv-mow"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="dKX-w2-lWR">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -308,7 +310,7 @@
                     <tabBarItem key="tabBarItem" title="" image="home" id="eF1-6b-mrX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="JO8-h8-Mju">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -323,12 +325,11 @@
         <!--Navigation Controller-->
         <scene sceneID="QA8-pl-pQp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Okq-e7-pQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gK3-N6-hVZ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="order" id="Vnh-Ph-Kel"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="HvI-gX-kmv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
@@ -337,6 +338,7 @@
                         <segue destination="0Qr-mK-U92" kind="relationship" relationship="rootViewController" id="FDE-Vk-fgr"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Okq-e7-pQF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2145" y="960"/>
         </scene>
