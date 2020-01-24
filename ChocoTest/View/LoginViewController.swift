@@ -24,6 +24,7 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         signInButton.applyGradientLayer(with: 10)
         handleButtonStatus()
+        viewModel.delegate = self
     
     }
     
@@ -55,10 +56,12 @@ extension LoginViewController: UITextFieldDelegate {
 
 extension LoginViewController: LoginDisplayLogic {
     func setLoading(isLoading: Bool) {
-        if isLoading {
-            LoadingView.shared.showLoading()
-        } else {
-            LoadingView.shared.hideLoading()
+        DispatchQueue.main.async {
+            if isLoading {
+                LoadingView.shared.showLoading()
+            } else {
+                LoadingView.shared.hideLoading()
+            }
         }
     }
     
@@ -67,7 +70,9 @@ extension LoginViewController: LoginDisplayLogic {
     }
     
     func goToHome() {
-        performSegue(withIdentifier: "goToHome", sender: nil)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "goToHome", sender: nil)
+        }
     }
     
 }
