@@ -9,9 +9,10 @@
 import Foundation
 
 protocol ProductsPresentable {
+    func setLoading(isLoading: Bool)
     func presentList()
     func presentError(message: String)
-    func presentProductCount(count: Int)
+    func presentPreOrder(itemsCount: Int, total: String)
 }
 
 class ProductsViewModel {
@@ -25,6 +26,7 @@ class ProductsViewModel {
     init() {}
     
     func viewModelDidLoad() {
+        delegate?.setLoading(isLoading: true)
         getProducts()
     }
     
@@ -38,6 +40,7 @@ class ProductsViewModel {
             case .failure(let error):
                 self?.delegate?.presentError(message: error)
             }
+            self?.delegate?.setLoading(isLoading: false)
         }
     }
     
@@ -50,16 +53,23 @@ class ProductsViewModel {
     func didSelectItem(index: Int) {
         let prod = products[index]
         productsSelected.append(prod)
-        delegate?.presentProductCount(count: productsSelected.count)
+        delegate?.presentPreOrder(itemsCount: productsSelected.count, total: getTotal())
     }
     
     func didDeselectItem(index: Int) {
         let prod = products[index]
         if let prodIndex = productsSelected.firstIndex(where: { $0.guid == prod.guid }) {
             productsSelected.remove(at: prodIndex)
-            delegate?.presentProductCount(count: productsSelected.count)
+            delegate?.presentPreOrder(itemsCount: productsSelected.count, total: getTotal())
         }
     }
 
+    private func getTotal() -> String {
+        var total = 0.0
+        for prod in productsSelected {
+            total = total + (prod.price ?? 0.0)
+        }
+        return total.getCurrency()
+    }
     
 }

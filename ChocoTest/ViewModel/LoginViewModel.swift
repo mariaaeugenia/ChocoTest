@@ -11,6 +11,7 @@ import Foundation
 protocol LoginDisplayLogic {
     func setLoading(isLoading: Bool)
     func presentError(message: String)
+    func goToHome()
 }
 
 class LoginViewModel {
@@ -31,15 +32,16 @@ class LoginViewModel {
         delegate?.setLoading(isLoading: true)
         let login = Login(email: email, password: password)
         let repo = LoginRepository(login: login)
-        repo.request { result in
-            self.delegate?.setLoading(isLoading: false)
+        repo.request { [weak self] result in
+            self?.delegate?.setLoading(isLoading: false)
             switch result {
             case .success(let token):
                 if let tkn = token.token {
                     UserDefaults.standard.set(tkn, forKey: "token")
+                    self?.delegate?.goToHome()
                 }
             case .failure(let error):
-                self.delegate?.presentError(message: error )
+                self?.delegate?.presentError(message: error )
             }
             
         }

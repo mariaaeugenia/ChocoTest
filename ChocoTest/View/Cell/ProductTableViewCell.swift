@@ -9,6 +9,10 @@
 import UIKit
 import Kingfisher
 
+protocol AddButtonPressing {
+    func didTapAddButton(index: Int)
+}
+
 class ProductTableViewCell: UITableViewCell {
 
     @IBOutlet weak var productImageView: UIImageView!
@@ -16,10 +20,12 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
     
+    var delegate: AddButtonPressing?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        addButton.applyGradientLayer()
+        let radius = addButton.frame.height/2
+        addButton.applyGradientLayer(with: radius)
     }
     
     func configureCell(viewModel: ProductCellViewModel) {
@@ -30,5 +36,8 @@ class ProductTableViewCell: UITableViewCell {
         priceLabel.text = viewModel.priceCurreny()
     }
 
+    @IBAction func addButtonAction(_ sender: UIButton) {
+        delegate?.didTapAddButton(index: sender.tag)
+    }
     
 }

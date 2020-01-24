@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        signInButton.applyGradientLayer()
+        signInButton.applyGradientLayer(with: 10)
         handleButtonStatus()
     
     }
@@ -51,4 +51,19 @@ extension LoginViewController: UITextFieldDelegate {
         }
         handleButtonStatus()
     }
+}
+
+extension LoginViewController: LoginDisplayLogic {
+    func setLoading(isLoading: Bool) {
+        
+    }
+    
+    func presentError(message: String) {
+        
+    }
+    
+    func goToHome() {
+        
+    }
+    
 }

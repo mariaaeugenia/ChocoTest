@@ -38,11 +38,8 @@ class ProductCellViewModel {
     }
     
     func priceCurreny() -> String {
-        let formatter = NumberFormatter()
-        formatter.locale = Locale(identifier: "de_DE")
-        formatter.numberStyle = .currency
-        if let price = self.price, let str = formatter.string(from: NSNumber(value: price)) {
-            return str
+        if let price = self.price {
+            return price.getCurrency()
         }
         return "\(price ?? 0.0)"
     }

@@ -33,11 +33,22 @@ class HomeViewController: UIViewController {
     }
 
 }
-
+    
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.05 * Double(indexPath.row),
+            animations: {
+                cell.alpha = 1
+        })
     }
     
     func tableView(_ tableView: UITableView,
@@ -67,11 +78,28 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as? ProductTableViewCell else { return UITableViewCell() }
         let vm = viewModel.cellForIndex(index: indexPath.row)
         cell.configureCell(viewModel: vm)
+        cell.addButton.tag = indexPath.row
+        cell.accessoryType = .detailButton
         return cell
     }
 }
 
-extension HomeViewController: ProductsPresentable {
+extension HomeViewController: ProductsPresentable, AddButtonPressing {
+    
+    func setLoading(isLoading: Bool) {
+        DispatchQueue.main.async {
+            if isLoading {
+                LoadingView.shared.showLoading()
+            } else {
+                LoadingView.shared.hideLoading()
+            }
+        }
+    }
+    
+    func didTapAddButton(index: Int) {
+        viewModel.didSelectItem(index: index)
+    }
+    
     func presentError(message: String) {
         //TODO: ALERT
     }
@@ -82,9 +110,15 @@ extension HomeViewController: ProductsPresentable {
         }
     }
     
-    func presentProductCount(count: Int) {
-        totalItemsLabel.text = "TOTAL (\(count) items)"
-        totalValueLabel.text = "12345.90"
-        print("COUNT: \(count)")
+    func presentPreOrder(itemsCount: Int, total: String) {
+        if itemsCount == 0 {
+            preOrderView.isHidden = true
+            totalItemsLabel.text = ""
+            totalValueLabel.text = ""
+        } else {
+            preOrderView.isHidden = false
+            totalItemsLabel.text = "TOTAL (\(itemsCount) items)"
+            totalValueLabel.text = total
+        }
     }
 }

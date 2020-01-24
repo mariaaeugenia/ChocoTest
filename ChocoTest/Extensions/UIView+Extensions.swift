@@ -10,12 +10,12 @@ import UIKit
 
 extension UIView {
     
-    func applyGradientLayer() {
+    func applyGradientLayer(with radius: CGFloat) {
         self.layoutIfNeeded()
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
         gradientLayer.colors = [UIColor(hexString: "0A9FF9").cgColor, UIColor(hexString: "0466F1").cgColor]
-        gradientLayer.cornerRadius = 10
+        gradientLayer.cornerRadius = radius
         self.layer.insertSublayer(gradientLayer, at: 0)
     }
     

@@ -50,6 +50,9 @@
 		5479EB5523D9481800E92883 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5479EB5323D9481800E92883 /* ProductTableViewCell.xib */; };
 		5479EB5723D94B1B00E92883 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB5623D94B1B00E92883 /* ProductCellViewModel.swift */; };
 		5479EB5923D9D24B00E92883 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB5823D9D24B00E92883 /* UIImageView+Extensions.swift */; };
+		5479EB5B23DA6CDD00E92883 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB5A23DA6CDD00E92883 /* Double+Extensions.swift */; };
+		5479EB5D23DA717000E92883 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB5C23DA717000E92883 /* LoadingView.swift */; };
+		5479EB5F23DA773F00E92883 /* UIAplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB5E23DA773F00E92883 /* UIAplication+Extensions.swift */; };
 		B4C091A82CD6E71657FAF3D4 /* Pods_ChocoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526E561BE182333372834ADB /* Pods_ChocoTest.framework */; };
 		F2EF56A8BDA0C91337B8B949 /* Pods_ChocoTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147C842B1A9CBCD2FAFA1B56 /* Pods_ChocoTestTests.framework */; };
 /* End PBXBuildFile section */
@@ -126,6 +129,9 @@
 		5479EB5323D9481800E92883 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		5479EB5623D94B1B00E92883 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
 		5479EB5823D9D24B00E92883 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		5479EB5A23DA6CDD00E92883 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		5479EB5C23DA717000E92883 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		5479EB5E23DA773F00E92883 /* UIAplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+Extensions.swift"; sourceTree = "<group>"; };
 		587E8322514637723D101135 /* Pods-ChocoTest-ChocoTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTest-ChocoTestUITests.release.xcconfig"; path = "Target Support Files/Pods-ChocoTest-ChocoTestUITests/Pods-ChocoTest-ChocoTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A7B1DE988B8E164BE2FC9E5 /* Pods-ChocoTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTestTests.release.xcconfig"; path = "Target Support Files/Pods-ChocoTestTests/Pods-ChocoTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		A86230949843256F5835347A /* Pods-ChocoTest-ChocoTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTest-ChocoTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-ChocoTest-ChocoTestUITests/Pods-ChocoTest-ChocoTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +317,8 @@
 				5479EB3923D7F37F00E92883 /* UIColor+Extensions.swift */,
 				5479EB3723D7F2AB00E92883 /* UIView+Extensions.swift */,
 				5479EB5823D9D24B00E92883 /* UIImageView+Extensions.swift */,
+				5479EB5A23DA6CDD00E92883 /* Double+Extensions.swift */,
+				5479EB5E23DA773F00E92883 /* UIAplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -327,6 +335,7 @@
 		5479EB4423D934F400E92883 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5479EB5C23DA717000E92883 /* LoadingView.swift */,
 				5479EB4D23D947DD00E92883 /* Cell */,
 				5479EAC723D525ED00E92883 /* LoginViewController.swift */,
 				5479EB4523D9351F00E92883 /* HomeViewController.swift */,
@@ -617,13 +626,16 @@
 				5479EB5423D9481800E92883 /* ProductTableViewCell.swift in Sources */,
 				5479EB4123D91A3D00E92883 /* RealmManager.swift in Sources */,
 				5479EB1623D68BC400E92883 /* Product.swift in Sources */,
+				5479EB5B23DA6CDD00E92883 /* Double+Extensions.swift in Sources */,
 				5479EAFF23D529CE00E92883 /* Repository.swift in Sources */,
 				5479EB0B23D67C6400E92883 /* JSONParameterEncoder.swift in Sources */,
+				5479EB5F23DA773F00E92883 /* UIAplication+Extensions.swift in Sources */,
 				5479EAF723D528AC00E92883 /* Api.swift in Sources */,
 				5479EB2B23D7B95A00E92883 /* LoginRepository.swift in Sources */,
 				5479EB0F23D67DFB00E92883 /* Router.swift in Sources */,
 				5479EB4C23D943AF00E92883 /* ProductsViewModel.swift in Sources */,
 				5479EB3A23D7F37F00E92883 /* UIColor+Extensions.swift in Sources */,
+				5479EB5D23DA717000E92883 /* LoadingView.swift in Sources */,
 				5479EB3E23D9180200E92883 /* Order.swift in Sources */,
 				5479EB4323D91E0700E92883 /* RealmRepository.swift in Sources */,
 				5479EB3023D7D79300E92883 /* ProductsRepository.swift in Sources */,
