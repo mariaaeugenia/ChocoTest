@@ -8,22 +8,21 @@
 
 import Foundation
 
-protocol ProductsPresentable {
-    func setLoading(isLoading: Bool)
+protocol ProductsBusinessLogic {
     func presentList()
-    func presentError(message: String)
     func presentPreOrder(itemsCount: Int, total: String)
 }
 
-class ProductsViewModel {
+class ProductsViewModel: ViewModel {
     var numberOfRows = 0
     
     var repo = ProductsRepository()
     var products = [Product]()
     var productsSelected = [Product]()
-    var delegate: ProductsPresentable?
+    var delegate: Presentable?
+    var productDelegate: ProductsBusinessLogic?
     
-    init() {}
+    required init() {}
     
     func viewModelDidLoad() {
         delegate?.setLoading(isLoading: true)
@@ -36,7 +35,7 @@ class ProductsViewModel {
             case .success(let list):
                 self?.products.append(contentsOf: list)
                 self?.numberOfRows = list.count
-                self?.delegate?.presentList()
+                self?.productDelegate?.presentList()
             case .failure(let error):
                 self?.delegate?.presentError(message: error)
             }
@@ -53,14 +52,14 @@ class ProductsViewModel {
     func didSelectItem(index: Int) {
         let prod = products[index]
         productsSelected.append(prod)
-        delegate?.presentPreOrder(itemsCount: productsSelected.count, total: getTotal())
+        productDelegate?.presentPreOrder(itemsCount: productsSelected.count, total: getTotal())
     }
     
     func didDeselectItem(index: Int) {
         let prod = products[index]
         if let prodIndex = productsSelected.firstIndex(where: { $0.guid == prod.guid }) {
             productsSelected.remove(at: prodIndex)
-            delegate?.presentPreOrder(itemsCount: productsSelected.count, total: getTotal())
+            productDelegate?.presentPreOrder(itemsCount: productsSelected.count, total: getTotal())
         }
     }
 

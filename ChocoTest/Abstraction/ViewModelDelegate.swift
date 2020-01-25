@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+protocol ViewModelDelegate: class {
+    associatedtype T: ViewModel
+    var vm: T { get }
+    init()
+}

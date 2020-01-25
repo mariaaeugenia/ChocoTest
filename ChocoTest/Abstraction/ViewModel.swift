@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+protocol ViewModel: class {
+    init()
+}
+
+protocol Presentable: class {
+    func setLoading(isLoading: Bool)
+    func presentError(message: String)
+}

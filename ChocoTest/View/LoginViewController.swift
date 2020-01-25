@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
         signInButton.applyGradientLayer(with: 10)
         handleButtonStatus()
         viewModel.delegate = self
+        viewModel.loginDelegate = self
     
     }
     
@@ -54,7 +55,8 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
-extension LoginViewController: LoginDisplayLogic {
+extension LoginViewController: Presentable, LoginBusinessLogic {
+    //Presentable
     func setLoading(isLoading: Bool) {
         DispatchQueue.main.async {
             if isLoading {
@@ -68,7 +70,7 @@ extension LoginViewController: LoginDisplayLogic {
     func presentError(message: String) {
         self.presentAlert(title: "Error", message: message, completion:{_ in })
     }
-    
+    //LoginBusinessLogic
     func goToHome() {
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "goToHome", sender: nil)

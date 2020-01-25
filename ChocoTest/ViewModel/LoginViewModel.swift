@@ -8,18 +8,20 @@
 
 import Foundation
 
-protocol LoginDisplayLogic {
-    func setLoading(isLoading: Bool)
-    func presentError(message: String)
+protocol LoginBusinessLogic {
     func goToHome()
 }
 
-class LoginViewModel {
+class LoginViewModel: ViewModel {
 
-    var delegate: LoginDisplayLogic?
+    var delegate: Presentable?
+    var loginDelegate: LoginBusinessLogic?
+    
     
     var email = ""
     var password = ""
+    
+    required init() {}
     
     func buttonEnabled() -> Bool {
         if email.isEmpty || password.isEmpty {
@@ -38,7 +40,7 @@ class LoginViewModel {
             case .success(let token):
                 if let tkn = token.token {
                     UserDefaults.standard.set(tkn, forKey: "token")
-                    self?.delegate?.goToHome()
+                    self?.loginDelegate?.goToHome()
                 }
             case .failure(let error):
                 self?.delegate?.presentError(message: error )

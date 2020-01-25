@@ -8,31 +8,36 @@
 
 import UIKit
 
-class OrdersTableViewController: UITableViewController {
+class OrdersTableViewController: AbstractTableViewController<OrdersViewModel> {
     
-
+    var dataSource = AbstractTableViewDataSource<UITableViewCell>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-
-    // MARK: - Table view data source
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath)
-        cell.textLabel?.text = "20/01/2020"
-        cell.detailTextLabel?.text = "1234.56"
-
-        return cell
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        vm.orderDelegate = self
+        vm.viewModelDidLoad()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToMyOrder", sender: nil)
+    func setupTableViewDataSourceDelegate() {
+        let newDataSource = AbstractTableViewDataSource<UITableViewCell>(numberOfItems: self.vm.numberOfRows, identifier: "CELL", configure: { [unowned self] (cell:UITableViewCell , index) in
+            let data = self.vm.cellForIndex(index: index)
+            cell.textLabel?.text = data.0
+            cell.detailTextLabel?.text = data.1
+            }) { [unowned self] (index) in
+                self.performSegue(withIdentifier: "goToMyOrder", sender: nil)
+        }
+        dataSource = newDataSource
+        tableView.dataSource = dataSource
+        tableView.delegate = self
     }
 
+}
+
+extension OrdersTableViewController: OrderBusinessLogic {
+    func presentList() {
+        setupTableViewDataSourceDelegate()
+        tableView.reloadData()
+    }
 }

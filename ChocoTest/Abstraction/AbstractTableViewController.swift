@@ -1,5 +1,5 @@
 //
-//  AbstractViewController.swift
+//  AbstractTableViewController.swift
 //  ChocoTest
 //
 //  Created by Maria Eugênia Pereira Teixeira on 24/01/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AbstractViewController<T: ViewModel>: UIViewController, ViewModelDelegate {
+class AbstractTableViewController<T: ViewModel>: UITableViewController, ViewModelDelegate {
     typealias T = T
     var vm: T
 
@@ -26,4 +26,5 @@ class AbstractViewController<T: ViewModel>: UIViewController, ViewModelDelegate 
         vm = .init()
         super.init(coder: aDecoder)
     }
+
 }

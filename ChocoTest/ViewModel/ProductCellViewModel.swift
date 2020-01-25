@@ -9,12 +9,14 @@
 import Foundation
 
 
-class ProductCellViewModel {
+class ProductCellViewModel: ViewModel {
     
     var photo: String?
     var name: String?
     var price: Double?
     var shouldHideButton = false
+    
+    required init() {}
     
     init(photo: String?, name: String?, price: Double?, shouldHideButton: Bool) {
         self.photo = photo

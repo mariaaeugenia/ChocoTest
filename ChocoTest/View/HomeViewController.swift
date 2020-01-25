@@ -8,44 +8,53 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: AbstractViewController<ProductsViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var preOrderView: UIView!
     @IBOutlet weak var totalItemsLabel: UILabel!
     @IBOutlet weak var totalValueLabel: UILabel!
     
-    let viewModel = ProductsViewModel()
+    var dataSource = AbstractTableViewDataSource<ProductTableViewCell>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        viewModel.delegate = self
-        viewModel.viewModelDidLoad()
+        setupTableViewCell()
+        vm.delegate = self
+        vm.productDelegate = self
+        vm.viewModelDidLoad()
     }
     
-    func setupTableView() {
+    func setupTableViewCell() {
         let nib = UINib(nibName: "ProductTableViewCell",bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CELL")
         tableView.rowHeight = 80
+    }
+    
+    func setupTableViewDataSourceDelegate() {
+        let newDataSource = AbstractTableViewDataSource<ProductTableViewCell>(numberOfItems: self.vm.numberOfRows, identifier: "CELL", configure: { [unowned self] (cell:ProductTableViewCell , index) in
+                let vm = self.vm.cellForIndex(index: index)
+                cell.configureCell(viewModel: vm)
+                cell.addButton.tag = index
+                cell.accessoryType = .detailButton
+            }) { (index) in
+                print("INDEX: \(index)")
+            }
+        dataSource = newDataSource
+        tableView.dataSource = dataSource
         tableView.delegate = self
-        tableView.dataSource = self
     }
 
 }
     
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows
-    }
+extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.alpha = 0
+        cell.alpha = 0.4
 
         UIView.animate(
-            withDuration: 0.5,
-            delay: 0.05 * Double(indexPath.row),
+            withDuration: 0.3,
+            delay: 0.01 * Double(indexPath.row),
             animations: {
                 cell.alpha = 1
         })
@@ -55,7 +64,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let closeAction = UIContextualAction(style: .normal, title:  "ADD", handler: { [weak self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            self?.viewModel.didSelectItem(index: indexPath.row)
+            self?.vm.didSelectItem(index: indexPath.row)
             success(true)
         })
         closeAction.backgroundColor = UIColor(hexString: "007AFF")
@@ -66,26 +75,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
         let modifyAction = UIContextualAction(style: .normal, title:  "Delete", handler: { [weak self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
-            self?.viewModel.didDeselectItem(index: indexPath.row)
+            self?.vm.didDeselectItem(index: indexPath.row)
             success(true)
         })
         modifyAction.backgroundColor = .red
     
         return UISwipeActionsConfiguration(actions: [modifyAction])
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath) as? ProductTableViewCell else { return UITableViewCell() }
-        let vm = viewModel.cellForIndex(index: indexPath.row)
-        cell.configureCell(viewModel: vm)
-        cell.addButton.tag = indexPath.row
-        cell.accessoryType = .detailButton
-        return cell
-    }
+
 }
 
-extension HomeViewController: ProductsPresentable, AddButtonPressing {
-    
+extension HomeViewController: Presentable, ProductsBusinessLogic, AddButtonPressing {
+    //Presentable
     func setLoading(isLoading: Bool) {
         DispatchQueue.main.async {
             if isLoading {
@@ -96,16 +97,13 @@ extension HomeViewController: ProductsPresentable, AddButtonPressing {
         }
     }
     
-    func didTapAddButton(index: Int) {
-        viewModel.didSelectItem(index: index)
-    }
-    
     func presentError(message: String) {
         self.presentAlert(title: "Error", message: message, completion:{_ in })
     }
-    
+    //ProductsBusinessLogic
     func presentList() {
         DispatchQueue.main.async {
+            self.setupTableViewDataSourceDelegate()
             self.tableView.reloadData()
         }
     }
@@ -120,5 +118,9 @@ extension HomeViewController: ProductsPresentable, AddButtonPressing {
             totalItemsLabel.text = "TOTAL (\(itemsCount) items)"
             totalValueLabel.text = total
         }
+    }
+    //AddButtonPressing
+    func didTapAddButton(index: Int) {
+        vm.didSelectItem(index: index)
     }
 }

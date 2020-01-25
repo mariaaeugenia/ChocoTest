@@ -55,6 +55,13 @@
 		5479EB5F23DA773F00E92883 /* UIAplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB5E23DA773F00E92883 /* UIAplication+Extensions.swift */; };
 		5479EB6323DA7DFE00E92883 /* OrdersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB6223DA7DFE00E92883 /* OrdersTableViewController.swift */; };
 		5479EB6523DA817E00E92883 /* MyOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB6423DA817E00E92883 /* MyOrderTableViewController.swift */; };
+		5479EB6723DBB27600E92883 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB6623DBB27600E92883 /* OrdersViewModel.swift */; };
+		5479EB6A23DBBEAA00E92883 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB6923DBBEAA00E92883 /* ViewModel.swift */; };
+		5479EB6C23DBBF2400E92883 /* AbstractViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB6B23DBBF2400E92883 /* AbstractViewController.swift */; };
+		5479EB6E23DBBF6400E92883 /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB6D23DBBF6400E92883 /* ViewModelDelegate.swift */; };
+		5479EB7023DBBFD600E92883 /* AbstractTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB6F23DBBFD600E92883 /* AbstractTableViewDataSource.swift */; };
+		5479EB7223DBD80F00E92883 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB7123DBD80F00E92883 /* Date+Extensions.swift */; };
+		5479EB7423DBDAC400E92883 /* AbstractTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB7323DBDAC400E92883 /* AbstractTableViewController.swift */; };
 		6594A82523DB3A4700C4FAF6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6594A82423DB3A4700C4FAF6 /* UIViewController+Extensions.swift */; };
 		B4C091A82CD6E71657FAF3D4 /* Pods_ChocoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526E561BE182333372834ADB /* Pods_ChocoTest.framework */; };
 		F2EF56A8BDA0C91337B8B949 /* Pods_ChocoTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147C842B1A9CBCD2FAFA1B56 /* Pods_ChocoTestTests.framework */; };
@@ -137,6 +144,13 @@
 		5479EB5E23DA773F00E92883 /* UIAplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAplication+Extensions.swift"; sourceTree = "<group>"; };
 		5479EB6223DA7DFE00E92883 /* OrdersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewController.swift; sourceTree = "<group>"; };
 		5479EB6423DA817E00E92883 /* MyOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewController.swift; sourceTree = "<group>"; };
+		5479EB6623DBB27600E92883 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
+		5479EB6923DBBEAA00E92883 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5479EB6B23DBBF2400E92883 /* AbstractViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractViewController.swift; sourceTree = "<group>"; };
+		5479EB6D23DBBF6400E92883 /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
+		5479EB6F23DBBFD600E92883 /* AbstractTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractTableViewDataSource.swift; sourceTree = "<group>"; };
+		5479EB7123DBD80F00E92883 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		5479EB7323DBDAC400E92883 /* AbstractTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractTableViewController.swift; sourceTree = "<group>"; };
 		587E8322514637723D101135 /* Pods-ChocoTest-ChocoTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTest-ChocoTestUITests.release.xcconfig"; path = "Target Support Files/Pods-ChocoTest-ChocoTestUITests/Pods-ChocoTest-ChocoTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6594A82423DB3A4700C4FAF6 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		8A7B1DE988B8E164BE2FC9E5 /* Pods-ChocoTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTestTests.release.xcconfig"; path = "Target Support Files/Pods-ChocoTestTests/Pods-ChocoTestTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +210,7 @@
 		5479EAC223D525ED00E92883 /* ChocoTest */ = {
 			isa = PBXGroup;
 			children = (
+				5479EB6823DBBE8C00E92883 /* Abstraction */,
 				5479EB3F23D91A2F00E92883 /* Realm */,
 				5479EB3623D7F29500E92883 /* Extensions */,
 				5479EB2923D7B94600E92883 /* Repository */,
@@ -313,6 +328,7 @@
 				5479EB3423D7E14400E92883 /* LoginViewModel.swift */,
 				5479EB4B23D943AF00E92883 /* ProductsViewModel.swift */,
 				5479EB5623D94B1B00E92883 /* ProductCellViewModel.swift */,
+				5479EB6623DBB27600E92883 /* OrdersViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -326,6 +342,7 @@
 				5479EB5823D9D24B00E92883 /* UIImageView+Extensions.swift */,
 				5479EB5A23DA6CDD00E92883 /* Double+Extensions.swift */,
 				5479EB5E23DA773F00E92883 /* UIAplication+Extensions.swift */,
+				5479EB7123DBD80F00E92883 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -359,6 +376,18 @@
 				5479EB5323D9481800E92883 /* ProductTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		5479EB6823DBBE8C00E92883 /* Abstraction */ = {
+			isa = PBXGroup;
+			children = (
+				5479EB6923DBBEAA00E92883 /* ViewModel.swift */,
+				5479EB6D23DBBF6400E92883 /* ViewModelDelegate.swift */,
+				5479EB6B23DBBF2400E92883 /* AbstractViewController.swift */,
+				5479EB7323DBDAC400E92883 /* AbstractTableViewController.swift */,
+				5479EB6F23DBBFD600E92883 /* AbstractTableViewDataSource.swift */,
+			);
+			path = Abstraction;
 			sourceTree = "<group>";
 		};
 		70E981142FA023527DD16451 /* Frameworks */ = {
@@ -626,7 +655,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5479EB7423DBDAC400E92883 /* AbstractTableViewController.swift in Sources */,
 				5479EB3523D7E14400E92883 /* LoginViewModel.swift in Sources */,
+				5479EB6E23DBBF6400E92883 /* ViewModelDelegate.swift in Sources */,
 				5479EB3823D7F2AB00E92883 /* UIView+Extensions.swift in Sources */,
 				5479EB1823D68D5E00E92883 /* ApiManager.swift in Sources */,
 				5479EAC823D525ED00E92883 /* LoginViewController.swift in Sources */,
@@ -654,17 +685,22 @@
 				5479EB5723D94B1B00E92883 /* ProductCellViewModel.swift in Sources */,
 				5479EB0723D6791200E92883 /* ParameterEncoding.swift in Sources */,
 				5479EB1E23D7B20500E92883 /* NetworkLog.swift in Sources */,
+				5479EB6C23DBBF2400E92883 /* AbstractViewController.swift in Sources */,
 				5479EB2D23D7BA8400E92883 /* Token.swift in Sources */,
 				5479EB1423D68A8D00E92883 /* Login.swift in Sources */,
 				5479EB0523D52EE900E92883 /* HTTPTask.swift in Sources */,
+				5479EB7223DBD80F00E92883 /* Date+Extensions.swift in Sources */,
 				5479EAF523D5280D00E92883 /* Endpoint.swift in Sources */,
 				5479EB0323D52EA800E92883 /* HTTPMethod.swift in Sources */,
 				5479EB1A23D6902100E92883 /* Result.swift in Sources */,
+				5479EB6A23DBBEAA00E92883 /* ViewModel.swift in Sources */,
 				5479EB4623D9351F00E92883 /* HomeViewController.swift in Sources */,
 				5479EB2123D7B5CD00E92883 /* NetworkError.swift in Sources */,
+				5479EB6723DBB27600E92883 /* OrdersViewModel.swift in Sources */,
 				5479EB0123D52B0A00E92883 /* Constants.swift in Sources */,
 				5479EB0D23D67D0700E92883 /* NetworkRouter.swift in Sources */,
 				5479EB3C23D917F300E92883 /* OrderRepository.swift in Sources */,
+				5479EB7023DBBFD600E92883 /* AbstractTableViewDataSource.swift in Sources */,
 				5479EB3223D7DA3300E92883 /* URLParameterEncode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
