@@ -6,7 +6,6 @@ target 'ChocoTest' do
   use_frameworks!
   pod 'IQKeyboardManagerSwift'
   pod 'RealmSwift'
-  pod 'Kingfisher', '~> 5.0'
   
   target 'ChocoTestTests' do
     inherit! :search_paths

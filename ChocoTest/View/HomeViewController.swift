@@ -200,6 +200,7 @@ extension HomeViewController: Presentable, ProductsBusinessLogic {
     
     func didOrder() {
         DispatchQueue.main.async {
+            self.tableView.reloadData()
             self.presentAlert(title: "Alert", message: "Order placed with success", completion:{_ in })
             self.clear()
         }
