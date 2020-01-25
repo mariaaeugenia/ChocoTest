@@ -12,6 +12,7 @@ import Kingfisher
 
 class ProductTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var checkImage: UIImageView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -26,6 +27,7 @@ class ProductTableViewCell: UITableViewCell {
         productImageView.load(url: url, placeholder: "placeholder")
         nameLabel.text = viewModel.getName()
         priceLabel.text = viewModel.priceCurreny()
+        checkImage.isHidden = !viewModel.isCheked
     }
     
 }

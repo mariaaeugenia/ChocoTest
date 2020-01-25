@@ -14,15 +14,15 @@ class ProductCellViewModel: ViewModel {
     var photo: String?
     var name: String?
     var price: Double?
-    var shouldHideButton = false
+    var isCheked = false
     
     required init() {}
     
-    init(photo: String?, name: String?, price: Double?, shouldHideButton: Bool) {
+    init(photo: String?, name: String?, price: Double?, isCheked: Bool) {
         self.photo = photo
         self.name = name
         self.price = price
-        self.shouldHideButton = shouldHideButton
+        self.isCheked = isCheked
     }
     
     func getPhoto() -> String {

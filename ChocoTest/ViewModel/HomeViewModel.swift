@@ -48,7 +48,8 @@ class HomeViewModel: ViewModel {
     
     func cellForIndex(index: Int) -> ProductCellViewModel {
         let product = products[index]
-        let vm = ProductCellViewModel(photo: product.picture, name: product.name, price: product.price, shouldHideButton: false)
+        let isChecked = productsSelected.contains(where: {$0.guid == product.guid})
+        let vm = ProductCellViewModel(photo: product.picture, name: product.name, price: product.price, isCheked: isChecked)
         return vm
     }
     

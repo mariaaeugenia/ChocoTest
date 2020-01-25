@@ -12,11 +12,12 @@ class OrdersTableViewController: AbstractTableViewController<OrdersViewModel> {
     
     var dataSource = AbstractTableViewDataSource<UITableViewCell>()
     
+    let label = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.orderDelegate = self
-        
+        setupEmptyListMessage()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +49,19 @@ class OrdersTableViewController: AbstractTableViewController<OrdersViewModel> {
             }
         }
     }
+    
+    func setupEmptyListMessage() {
+        label.font = UIFont(name: "Avenir Next - Bold", size: 40)
+        label.text = "Ops!\n You didn't place any order yet"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
+        self.view.addSubview(label)
+        label.widthAnchor.constraint(equalTo: self.tableView.widthAnchor, multiplier: 0.8).isActive = true
+        label.centerYAnchor.constraint(equalTo: self.tableView.centerYAnchor, constant: -50).isActive = true
+        label.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
+    }
 
 }
 
@@ -55,5 +69,7 @@ extension OrdersTableViewController: PresentableList {
     func presentList() {
         setupTableViewDataSourceDelegate()
         tableView.reloadData()
+        label.isHidden = (vm.numberOfRows != 0)
+        
     }
 }
