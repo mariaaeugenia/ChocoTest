@@ -11,6 +11,8 @@ It was developed an ordering app. It fetches a list from a server and place the 
 
 ## Features
 
+
+
 * MVVM
 * Network Layer
 * Repository
@@ -42,6 +44,13 @@ $ pod install
 
 Once the pods are installed, open the ChocoTest.xcworkspace
 
+## Testing
+
+An user and password are needed to login:
+```
+User: ​user@choco.com 
+Password:​ chocorian
+```
 
 ## Built With
 
