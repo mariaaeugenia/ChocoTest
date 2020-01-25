@@ -15,8 +15,6 @@ class OrdersTableViewController: AbstractTableViewController<OrdersViewModel> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
         vm.orderDelegate = self
         
     }
@@ -46,8 +44,7 @@ class OrdersTableViewController: AbstractTableViewController<OrdersViewModel> {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? MyOrderTableViewController {
             if let order = sender as? Order {
-                let viewModel = MyOrderViewModel(order: order)
-                destinationVC.setupViewController(viewModel)
+                destinationVC.vm.setOrderFor(order)
             }
         }
     }

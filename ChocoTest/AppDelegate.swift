@@ -32,12 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setup() {
         //KEYBOARD
         IQKeyboardManager.shared.enable = true
-        
-        //REALM
-        let config = Realm.Configuration(
-            schemaVersion: 1,
-            migrationBlock: { _, _ in })
-        Realm.Configuration.defaultConfiguration = config
     }
 }
 

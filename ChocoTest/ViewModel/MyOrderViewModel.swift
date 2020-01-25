@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class MyOrderViewModel: ViewModel {
     
     var numberOfRows = 0
@@ -18,7 +19,7 @@ class MyOrderViewModel: ViewModel {
     
     required init() {}
     
-    init(order: Order) {
+    func setOrderFor(_ order: Order) {
         let productsResult = order.products.map{$0}
         var prodObjects = [ProductObject]()
         prodObjects.append(contentsOf: productsResult)
@@ -31,6 +32,11 @@ class MyOrderViewModel: ViewModel {
         let product = products[index]
         let vm = ProductCellViewModel(photo: product.picture, name: product.name, price: product.price, shouldHideButton: false)
         return vm
+    }
+    
+    func didTapDetailButton(index: Int) -> String {
+        let prod = products[index]
+        return prod.productDescription
     }
     
     func getPriceTotal() -> String {
