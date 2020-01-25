@@ -25,17 +25,30 @@ class OrdersTableViewController: AbstractTableViewController<OrdersViewModel> {
             let data = self.vm.cellForIndex(index: index)
             cell.textLabel?.text = data.0
             cell.detailTextLabel?.text = data.1
-            }) { [unowned self] (index) in
-                self.performSegue(withIdentifier: "goToMyOrder", sender: nil)
-        }
+            })
+        
         dataSource = newDataSource
         tableView.dataSource = dataSource
         tableView.delegate = self
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let orderSelected = vm.didSelectOrder(index: indexPath.row)
+        performSegue(withIdentifier: "goToMyOrder", sender: orderSelected)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? MyOrderTableViewController {
+            if let order = sender as? Order {
+                let viewModel = MyOrderViewModel(order: order)
+                destinationVC.setupViewController(viewModel)
+            }
+        }
+    }
 
 }
 
-extension OrdersTableViewController: OrderBusinessLogic {
+extension OrdersTableViewController: PresentableList {
     func presentList() {
         setupTableViewDataSourceDelegate()
         tableView.reloadData()

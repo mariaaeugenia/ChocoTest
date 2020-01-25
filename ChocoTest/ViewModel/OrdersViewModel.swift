@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol OrderBusinessLogic {
-    func presentList()
-}
-
 class OrdersViewModel: ViewModel {
     
     var numberOfRows = 0
@@ -19,13 +15,11 @@ class OrdersViewModel: ViewModel {
     var repo = OrderRepository()
     var orders = [Order]()
     var ordersSelected = [Order]()
-    var delegate: Presentable?
-    var orderDelegate: OrderBusinessLogic?
+    var orderDelegate: PresentableList?
     
     required init() {}
     
     func viewModelDidLoad() {
-        delegate?.setLoading(isLoading: true)
         getOrders()
     }
     
@@ -45,5 +39,9 @@ class OrdersViewModel: ViewModel {
         let value = order.priceTotal.getCurrency()
         return (date, value)
     }
-
+    
+    func didSelectOrder(index: Int) -> Order {
+        let order = orders[index]
+        return order
+    }
 }

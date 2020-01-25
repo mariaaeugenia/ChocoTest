@@ -12,13 +12,11 @@ class AbstractTableViewDataSource<Cell: UITableViewCell>: NSObject, UITableViewD
     
     var numberOfItems: Int
     var configure: (Cell, Int) -> Void
-    var selectHandler: (Int) -> Void
     var identifier: String
     
-    init(numberOfItems: Int = 0, identifier: String = "", configure: @escaping (Cell, Int) -> Void = {_, _ in }, selectHandler: @escaping (Int) -> Void = { _ in}) {
+    init(numberOfItems: Int = 0, identifier: String = "", configure: @escaping (Cell, Int) -> Void = {_, _ in }) {
         self.numberOfItems = numberOfItems
         self.configure = configure
-        self.selectHandler = selectHandler
         self.identifier = identifier
     }
     
@@ -36,9 +34,5 @@ class AbstractTableViewDataSource<Cell: UITableViewCell>: NSObject, UITableViewD
         configure(cell, indexPath.row)
         return cell
     }
-    //3
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        selectHandler(indexPath.row)
-    }
+    
 }

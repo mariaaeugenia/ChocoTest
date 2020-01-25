@@ -16,3 +16,7 @@ protocol Presentable: class {
     func setLoading(isLoading: Bool)
     func presentError(message: String)
 }
+
+protocol PresentableList: class {
+    func presentList()
+}

@@ -19,7 +19,9 @@ extension UIImageView {
                     }
                 }
             } else {
-                self?.image = UIImage(named: placeholder)
+                DispatchQueue.main.async {
+                    self?.image = UIImage(named: placeholder)
+                }
             }
         }
     }

@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="fV8-0s-oWA">
-                                <rect key="frame" x="60" y="60" width="200" height="200"/>
+                                <rect key="frame" x="60" y="59.999999999999986" width="200" height="200.00000000000003"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fV8-0s-oWA" secondAttribute="height" multiplier="1:1" id="Dkd-Ut-fi6"/>
                                 </constraints>
@@ -38,10 +38,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="28"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="yop-Dd-nVi">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="28"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="28"/>
                                                                     </imageView>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="if6-42-j4P">
-                                                                        <rect key="frame" x="48" y="0.0" width="208" height="28"/>
+                                                                        <rect key="frame" x="28" y="0.0" width="228" height="28"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                                                     </textField>
@@ -76,10 +76,10 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="28"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key" translatesAutoresizingMaskIntoConstraints="NO" id="lJI-TM-187">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="46" height="28"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="23" height="28"/>
                                                                     </imageView>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="••••••••••" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2E5-d3-K4p">
-                                                                        <rect key="frame" x="54" y="0.0" width="202" height="28"/>
+                                                                        <rect key="frame" x="31" y="0.0" width="225" height="28"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                                     </textField>
@@ -203,7 +203,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SGa-uC-mrv"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="DQA-LS-xXw"/>
+                    <navigationItem key="navigationItem" title="Home" largeTitleDisplayMode="always" id="DQA-LS-xXw"/>
                     <connections>
                         <outlet property="preOrderView" destination="O9p-MT-7jz" id="8Ol-Ph-lUf"/>
                         <outlet property="tableView" destination="oze-rf-5ws" id="efc-cP-7eR"/>
@@ -224,7 +224,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CELL" textLabel="Ife-OB-bMI" detailTextLabel="4g0-ib-p0l" style="IBUITableViewCellStyleSubtitle" id="a0H-77-Wcy">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CELL" textLabel="Ife-OB-bMI" detailTextLabel="4g0-ib-p0l" style="IBUITableViewCellStyleSubtitle" id="a0H-77-Wcy">
                                 <rect key="frame" x="0.0" y="28" width="320" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a0H-77-Wcy" id="TEb-dA-zvw">
@@ -276,7 +276,7 @@
                             <outlet property="delegate" destination="GbK-7C-Glz" id="EHE-Pt-1Cm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZiB-T8-BPI"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="ZiB-T8-BPI"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3o-0X-3fW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

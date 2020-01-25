@@ -37,9 +37,7 @@ class HomeViewController: AbstractViewController<ProductsViewModel> {
                 cell.configureCell(viewModel: vm)
                 cell.addButton.tag = index
                 cell.accessoryType = .detailButton
-            }) { (index) in
-                print("INDEX: \(index)")
-            }
+            })
         dataSource = newDataSource
         tableView.dataSource = dataSource
         tableView.delegate = self
