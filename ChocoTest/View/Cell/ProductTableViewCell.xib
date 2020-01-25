@@ -31,57 +31,35 @@
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n8C-Pe-MJZ">
-                        <rect key="frame" x="90" y="14.5" width="223" height="51"/>
+                        <rect key="frame" x="90" y="14.5" width="303" height="51"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pT0-W9-Dzc">
-                                <rect key="frame" x="0.0" y="0.0" width="223" height="22"/>
+                                <rect key="frame" x="0.0" y="0.0" width="303" height="22"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDi-P4-itq">
-                                <rect key="frame" x="0.0" y="31.5" width="223" height="19.5"/>
+                                <rect key="frame" x="0.0" y="31.5" width="303" height="19.5"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                 <color key="textColor" red="0.78823529411764703" green="0.78823529411764703" blue="0.78823529411764703" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12T-rV-Znn">
-                        <rect key="frame" x="333" y="27" width="60" height="26"/>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="26" id="4CW-Im-vp9"/>
-                            <constraint firstAttribute="width" constant="60" id="FIE-Aw-VeN"/>
-                        </constraints>
-                        <state key="normal" title="ADD">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="15"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="addButtonAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HDt-dE-dOU"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="n8C-Pe-MJZ" secondAttribute="trailing" constant="20" id="4bV-FC-erk"/>
                     <constraint firstItem="n8C-Pe-MJZ" firstAttribute="height" secondItem="yB5-Hf-Zy0" secondAttribute="height" multiplier="0.85" id="9SR-Xx-slN"/>
                     <constraint firstItem="yB5-Hf-Zy0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="BKi-2W-H7T"/>
                     <constraint firstItem="n8C-Pe-MJZ" firstAttribute="leading" secondItem="yB5-Hf-Zy0" secondAttribute="trailing" constant="10" id="Bde-oE-6WV"/>
                     <constraint firstItem="n8C-Pe-MJZ" firstAttribute="centerY" secondItem="yB5-Hf-Zy0" secondAttribute="centerY" id="Ffw-i6-HMI"/>
-                    <constraint firstItem="12T-rV-Znn" firstAttribute="centerY" secondItem="n8C-Pe-MJZ" secondAttribute="centerY" id="W7e-wR-VJR"/>
                     <constraint firstItem="yB5-Hf-Zy0" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WXq-HQ-hyi"/>
-                    <constraint firstAttribute="trailing" secondItem="12T-rV-Znn" secondAttribute="trailing" constant="20" id="Y77-bS-2zj"/>
-                    <constraint firstItem="12T-rV-Znn" firstAttribute="leading" secondItem="n8C-Pe-MJZ" secondAttribute="trailing" constant="20" id="jHk-D7-PwL"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addButton" destination="12T-rV-Znn" id="1Gb-ec-Yyg"/>
                 <outlet property="nameLabel" destination="pT0-W9-Dzc" id="bAq-WG-6pG"/>
                 <outlet property="priceLabel" destination="CDi-P4-itq" id="z7Z-7N-x9l"/>
                 <outlet property="productImageView" destination="yB5-Hf-Zy0" id="CR0-Be-JHh"/>

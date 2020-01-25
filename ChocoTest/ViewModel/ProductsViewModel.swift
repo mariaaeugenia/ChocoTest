@@ -7,16 +7,19 @@
 //
 
 import Foundation
+import RealmSwift
 
 protocol ProductsBusinessLogic {
     func presentList()
     func presentPreOrder(itemsCount: Int, total: String)
+    func didOrder()
 }
 
 class ProductsViewModel: ViewModel {
     var numberOfRows = 0
     
     var repo = ProductsRepository()
+    var orderRepo = OrderRepository()
     var products = [Product]()
     var productsSelected = [Product]()
     var delegate: Presentable?
@@ -62,7 +65,15 @@ class ProductsViewModel: ViewModel {
             productDelegate?.presentPreOrder(itemsCount: productsSelected.count, total: getTotal())
         }
     }
-
+    
+    func didTapDetailButton(index: Int) -> String {
+        let prod = products[index]
+        if let desc = prod.description {
+            return desc
+        }
+        return "No description"
+    }
+    
     private func getTotal() -> String {
         var total = 0.0
         for prod in productsSelected {
@@ -70,5 +81,38 @@ class ProductsViewModel: ViewModel {
         }
         return total.getCurrency()
     }
+    
+    func perfomeOrder() {
+        if productsSelected.count > 0 {
+            let order = Order()
+            order.id = UUID().uuidString
+            let products = List<ProductObject>()
+            var total: Double = 0.0
+            for prod in productsSelected {
+                let prodObj = ProductObject()
+                prodObj.guid = prod.guid ?? ""
+                prodObj.name = prod.name ?? ""
+                prodObj.picture = prod.picture ?? ""
+                prodObj.price = prod.price ?? 0.0
+                prodObj.productDescription = prod.description ?? ""
+                products.append(prodObj)
+                total = total + (prod.price ?? 0.0)
+            }
+            order.products.append(objectsIn: products)
+            order.priceTotal = total
+            orderRepo.saveObject(object: order) { [weak self] (isSuccess) in
+                if isSuccess {
+                    self?.productDelegate?.didOrder()
+                } else {
+                    self?.delegate?.presentError(message: "Something went wrong with your order")
+                }
+            }
+        }
+    }
+    
+    func clearProductsSelected() {
+        productsSelected.removeAll()
+    }
+    
     
 }

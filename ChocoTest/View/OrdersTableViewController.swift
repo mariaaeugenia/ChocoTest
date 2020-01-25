@@ -12,11 +12,17 @@ class OrdersTableViewController: AbstractTableViewController<OrdersViewModel> {
     
     var dataSource = AbstractTableViewDataSource<UITableViewCell>()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         vm.orderDelegate = self
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         vm.viewModelDidLoad()
     }
     

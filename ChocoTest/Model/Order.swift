@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class Order: Object {
-    @objc dynamic var id = 0
+    @objc dynamic var id = ""
     @objc dynamic var priceTotal: Double = 0.0
     @objc dynamic var created = Date()
     let products = List<ProductObject>()

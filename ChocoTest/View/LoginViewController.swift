@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        signInButton.applyGradientLayer(with: 10)
+        signInButton.applyGradientLayer(with: 10, and: signInButton.bounds)
         handleButtonStatus()
         viewModel.delegate = self
         viewModel.loginDelegate = self
@@ -68,7 +68,9 @@ extension LoginViewController: Presentable, LoginBusinessLogic {
     }
     
     func presentError(message: String) {
-        self.presentAlert(title: "Error", message: message, completion:{_ in })
+        DispatchQueue.main.async {
+            self.presentAlert(title: "Error", message: message, completion:{_ in })
+        }
     }
     //LoginBusinessLogic
     func goToHome() {

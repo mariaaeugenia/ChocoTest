@@ -14,19 +14,19 @@ class OrdersViewModel: ViewModel {
     
     var repo = OrderRepository()
     var orders = [Order]()
-    var ordersSelected = [Order]()
     var orderDelegate: PresentableList?
     
     required init() {}
     
     func viewModelDidLoad() {
+        orders.removeAll()
         getOrders()
     }
     
     private func getOrders() {
         repo.requestObject { [weak self] (result) in
             
-            let list = result.map{$0}
+            let list = result.map{$0}.sorted(by: {$0.created.compare($1.created) == .orderedDescending})
             self?.orders.append(contentsOf: list)
             self?.numberOfRows = list.count
             self?.orderDelegate?.presentList()
