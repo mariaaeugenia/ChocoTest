@@ -195,6 +195,7 @@ extension HomeViewController: Presentable, ProductsBusinessLogic {
             totalItemsLabel.text = "TOTAL (\(itemsCount) items)"
             totalValueLabel.text = total
         }
+        tableView.reloadRows(at: [IndexPath(row: vm.index, section: 0)], with: .automatic)
     }
     
     func didOrder() {

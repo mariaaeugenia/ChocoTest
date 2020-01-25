@@ -24,6 +24,8 @@ class HomeViewModel: ViewModel {
     var productsSelected = [Product]()
     var delegate: Presentable?
     var productDelegate: ProductsBusinessLogic?
+    var isChecked = false
+    var index = 0
     
     required init() {}
     
@@ -48,18 +50,20 @@ class HomeViewModel: ViewModel {
     
     func cellForIndex(index: Int) -> ProductCellViewModel {
         let product = products[index]
-        let isChecked = productsSelected.contains(where: {$0.guid == product.guid})
+        isChecked = productsSelected.contains(where: {$0.guid == product.guid})
         let vm = ProductCellViewModel(photo: product.picture, name: product.name, price: product.price, isCheked: isChecked)
         return vm
     }
     
     func didSelectItem(index: Int) {
+        self.index = index
         let prod = products[index]
         productsSelected.append(prod)
         productDelegate?.presentPreOrder(itemsCount: productsSelected.count, total: getTotal())
     }
     
     func didDeselectItem(index: Int) {
+        self.index = index
         let prod = products[index]
         if let prodIndex = productsSelected.firstIndex(where: { $0.guid == prod.guid }) {
             productsSelected.remove(at: prodIndex)

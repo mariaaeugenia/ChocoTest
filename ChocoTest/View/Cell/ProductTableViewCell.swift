@@ -27,7 +27,11 @@ class ProductTableViewCell: UITableViewCell {
         productImageView.load(url: url, placeholder: "placeholder")
         nameLabel.text = viewModel.getName()
         priceLabel.text = viewModel.priceCurreny()
-        checkImage.isHidden = !viewModel.isCheked
+        if viewModel.isCheked {
+            checkImage.isHidden = false
+        } else {
+            checkImage.isHidden = true
+        }
     }
     
 }
