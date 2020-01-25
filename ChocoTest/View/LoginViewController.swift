@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UserDefaults.standard.set(nil, forKey: "token")
         emailTextField.delegate = self
         passwordTextField.delegate = self
         signInButton.applyGradientLayer(with: 10, and: signInButton.bounds)
