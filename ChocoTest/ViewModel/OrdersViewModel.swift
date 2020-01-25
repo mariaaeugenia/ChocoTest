@@ -13,7 +13,7 @@ class OrdersViewModel: ViewModel {
     var numberOfRows = 0
     
     var repo = OrderRepository()
-    var orders = [Order]()
+    var orders = [OrderObject]()
     var orderDelegate: PresentableList?
     
     required init() {}
@@ -40,7 +40,7 @@ class OrdersViewModel: ViewModel {
         return (date, value)
     }
     
-    func didSelectOrder(index: Int) -> Order {
+    func didSelectOrder(index: Int) -> OrderObject {
         let order = orders[index]
         return order
     }

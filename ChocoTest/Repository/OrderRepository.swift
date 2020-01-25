@@ -11,14 +11,14 @@ import RealmSwift
 
 struct OrderRepository: RealmRepository {
     
-    typealias T = Order
+    typealias T = OrderObject
     let manager = RealmManager.init()
     
-    func requestObject(completion: @escaping (Results<Order>) -> Void) {
+    func requestObject(completion: @escaping (Results<OrderObject>) -> Void) {
         manager.getObject(completion: completion)
     }
     
-    func saveObject(object: Order, completion: @escaping ((Bool) -> Void)) {
+    func saveObject(object: OrderObject, completion: @escaping ((Bool) -> Void)) {
         manager.saveObject(object: object, completion: completion)
     }
     

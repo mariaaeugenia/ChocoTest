@@ -89,7 +89,7 @@ class HomeViewModel: ViewModel {
     
     func perfomeOrder() {
         if productsSelected.count > 0 {
-            let order = Order()
+            let order = OrderObject()
             order.id = UUID().uuidString
             let products = List<ProductObject>()
             var total: Double = 0.0

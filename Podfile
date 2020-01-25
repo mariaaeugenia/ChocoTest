@@ -7,14 +7,13 @@ target 'ChocoTest' do
   pod 'IQKeyboardManagerSwift'
   pod 'RealmSwift'
   pod 'Kingfisher', '~> 5.0'
-
+  
   target 'ChocoTestTests' do
     inherit! :search_paths
-    # Pods for testing
   end
-
+  
   target 'ChocoTestUITests' do
     # Pods for testing
   end
-
+  
 end

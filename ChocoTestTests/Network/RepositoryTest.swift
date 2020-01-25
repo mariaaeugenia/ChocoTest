@@ -2,12 +2,11 @@
 //  RepositoryTest.swift
 //  ChocoTestTests
 //
-//  Created by Maria Eugênia Pereira Teixeira on 21/01/20.
+//  Created by Maria Eugênia Pereira Teixeira on 25/01/20.
 //  Copyright © 2020 Maria Eugênia Pereira Teixeira. All rights reserved.
 //
 
 import XCTest
-
 @testable import ChocoTest
 
 class RepositoryTest: XCTestCase {
@@ -32,6 +31,18 @@ class RepositoryTest: XCTestCase {
             }
         }
     }
-
+    
+    func test_products_repository() {
+        
+        let repo = ProductsRepositoryMock()
+        repo.request { (result) in
+            switch result {
+            case .success(let list):
+                XCTAssertEqual(list.count, 2)
+            default:
+                XCTFail()
+            }
+        }
+    }
 
 }

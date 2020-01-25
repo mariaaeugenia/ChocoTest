@@ -19,7 +19,7 @@ class MyOrderViewModel: ViewModel {
     
     required init() {}
     
-    func setOrderFor(_ order: Order) {
+    func setOrderFor(_ order: OrderObject) {
         let productsResult = order.products.map{$0}
         var prodObjects = [ProductObject]()
         prodObjects.append(contentsOf: productsResult)

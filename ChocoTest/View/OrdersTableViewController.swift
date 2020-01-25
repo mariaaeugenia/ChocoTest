@@ -44,7 +44,7 @@ class OrdersTableViewController: AbstractTableViewController<OrdersViewModel> {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination as? MyOrderTableViewController {
-            if let order = sender as? Order {
+            if let order = sender as? OrderObject {
                 destinationVC.vm.setOrderFor(order)
             }
         }
