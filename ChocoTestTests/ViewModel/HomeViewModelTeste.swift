@@ -7,27 +7,45 @@
 //
 
 import XCTest
+@testable import ChocoTest
 
 class HomeViewModelTeste: XCTestCase {
+    
+    let sut = HomeViewModel()
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut.numberOfRows = 2
     }
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_loading() {
+        let delegate = Presenter()
+        sut.delegate = delegate
+        sut.viewModelDidLoad()
+        XCTAssertTrue(delegate.loading)
+        
+        let businessLogicDelegate = HomeBusinessLogicMock()
+        sut.productDelegate = businessLogicDelegate
+        sut.productDelegate?.presentList()
+        sut.delegate?.setLoading(isLoading: !businessLogicDelegate.showList)
+        XCTAssertFalse(delegate.loading)
+    }
+    
+    func test_order() {
+        let businessLogicDelegate = HomeBusinessLogicMock()
+        sut.productDelegate = businessLogicDelegate
+        sut.productDelegate?.didOrder()
+        XCTAssertTrue(businessLogicDelegate.ordered)
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test_error() {
+        let delegate = Presenter()
+        sut.delegate = delegate
+        sut.delegate?.presentError(message: "ERROR")
+        XCTAssertEqual(delegate.error, "ERROR")
     }
 
 }

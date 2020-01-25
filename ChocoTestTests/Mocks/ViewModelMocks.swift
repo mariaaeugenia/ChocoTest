@@ -11,48 +11,37 @@ import Foundation
 
 //MARK: - PRESENTABLE MOCKS
 
-class PresenterLoading: Presentable {
+class Presenter: Presentable {
     var loading = false
+    var error = ""
     func setLoading(isLoading: Bool) {
-        loading = true
-    }
-    func presentError(message: String) {}
-}
-class PresenterNotLoadingNotError: Presentable {
-    var loading = false
-    var hasError = ""
-    func setLoading(isLoading: Bool) {
-        loading = false
+        loading = isLoading
     }
     func presentError(message: String) {
-        hasError = ""
-    }
-}
-class PresenterNotLoadingError: Presentable {
-    var loading = false
-    var hasError = ""
-    func setLoading(isLoading: Bool) {
-        loading = false
-    }
-    func presentError(message: String) {
-        hasError = "Error"
+        error = message
     }
 }
 
 
 //MARK: - BUSINESS LOGIC MOCKS
 //HOME
-class LoginBusinessLogicMock: ProductsBusinessLogic {
+class HomeBusinessLogicMock: ProductsBusinessLogic {
+    var showList = false
+    var itemsCount = 0
+    var total = ""
+    var ordered = false
+    
     func presentList() {
-        <#code#>
+        showList = true
     }
     
     func presentPreOrder(itemsCount: Int, total: String) {
-        <#code#>
+        self.itemsCount = itemsCount
+        self.total = total
     }
     
     func didOrder() {
-        <#code#>
+        ordered = true
     }
     
     
