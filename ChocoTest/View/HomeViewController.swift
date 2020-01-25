@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: AbstractViewController<ProductsViewModel> {
+class HomeViewController: AbstractViewController<HomeViewModel> {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var preOrderView: UIView!
@@ -139,7 +139,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
     {
-        let modifyAction = UIContextualAction(style: .normal, title:  "Delete", handler: { [weak self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+        let modifyAction = UIContextualAction(style: .normal, title:  "Remove", handler: { [weak self] (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
             self?.vm.didDeselectItem(index: indexPath.row)
             success(true)
         })
@@ -163,6 +163,11 @@ extension HomeViewController: Presentable, ProductsBusinessLogic {
                 LoadingView.shared.showLoading()
             } else {
                 LoadingView.shared.hideLoading()
+                if self.vm.isFirstTime() {
+                    let screenSize = UIScreen.main.bounds
+                    let view = OnBoardingView(frame: screenSize)
+                    self.tabBarController?.view.addSubview(view)
+                }
             }
         }
     }
@@ -199,3 +204,4 @@ extension HomeViewController: Presentable, ProductsBusinessLogic {
         }
     }
 }
+

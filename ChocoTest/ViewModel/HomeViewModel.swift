@@ -1,5 +1,5 @@
 //
-//  ProductsViewModel.swift
+//  HomeViewModel.swift
 //  ChocoTest
 //
 //  Created by Maria Eugênia Pereira Teixeira on 22/01/20.
@@ -15,7 +15,7 @@ protocol ProductsBusinessLogic {
     func didOrder()
 }
 
-class ProductsViewModel: ViewModel {
+class HomeViewModel: ViewModel {
     var numberOfRows = 0
     
     var repo = ProductsRepository()
@@ -114,5 +114,9 @@ class ProductsViewModel: ViewModel {
         productsSelected.removeAll()
     }
     
+    func isFirstTime() -> Bool {
+        let value = UserDefaults.standard.bool(forKey: "didSeeOnboarding")
+        return !value
+    }
     
 }

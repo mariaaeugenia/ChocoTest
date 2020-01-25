@@ -45,7 +45,7 @@
 		5479EB4123D91A3D00E92883 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB4023D91A3D00E92883 /* RealmManager.swift */; };
 		5479EB4323D91E0700E92883 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB4223D91E0700E92883 /* RealmRepository.swift */; };
 		5479EB4623D9351F00E92883 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB4523D9351F00E92883 /* HomeViewController.swift */; };
-		5479EB4C23D943AF00E92883 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB4B23D943AF00E92883 /* ProductsViewModel.swift */; };
+		5479EB4C23D943AF00E92883 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB4B23D943AF00E92883 /* HomeViewModel.swift */; };
 		5479EB5423D9481800E92883 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB5223D9481800E92883 /* ProductTableViewCell.swift */; };
 		5479EB5523D9481800E92883 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5479EB5323D9481800E92883 /* ProductTableViewCell.xib */; };
 		5479EB5723D94B1B00E92883 /* ProductCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB5623D94B1B00E92883 /* ProductCellViewModel.swift */; };
@@ -63,6 +63,7 @@
 		5479EB7223DBD80F00E92883 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB7123DBD80F00E92883 /* Date+Extensions.swift */; };
 		5479EB7423DBDAC400E92883 /* AbstractTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB7323DBDAC400E92883 /* AbstractTableViewController.swift */; };
 		5479EB7623DBDEA400E92883 /* MyOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB7523DBDEA400E92883 /* MyOrderViewModel.swift */; };
+		5479EB7823DC8B6500E92883 /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5479EB7723DC8B6500E92883 /* OnBoardingView.swift */; };
 		6594A82523DB3A4700C4FAF6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6594A82423DB3A4700C4FAF6 /* UIViewController+Extensions.swift */; };
 		B4C091A82CD6E71657FAF3D4 /* Pods_ChocoTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 526E561BE182333372834ADB /* Pods_ChocoTest.framework */; };
 		F2EF56A8BDA0C91337B8B949 /* Pods_ChocoTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 147C842B1A9CBCD2FAFA1B56 /* Pods_ChocoTestTests.framework */; };
@@ -135,7 +136,7 @@
 		5479EB4023D91A3D00E92883 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		5479EB4223D91E0700E92883 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		5479EB4523D9351F00E92883 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		5479EB4B23D943AF00E92883 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		5479EB4B23D943AF00E92883 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5479EB5223D9481800E92883 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		5479EB5323D9481800E92883 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		5479EB5623D94B1B00E92883 /* ProductCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellViewModel.swift; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 		5479EB7123DBD80F00E92883 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		5479EB7323DBDAC400E92883 /* AbstractTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractTableViewController.swift; sourceTree = "<group>"; };
 		5479EB7523DBDEA400E92883 /* MyOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderViewModel.swift; sourceTree = "<group>"; };
+		5479EB7723DC8B6500E92883 /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		587E8322514637723D101135 /* Pods-ChocoTest-ChocoTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTest-ChocoTestUITests.release.xcconfig"; path = "Target Support Files/Pods-ChocoTest-ChocoTestUITests/Pods-ChocoTest-ChocoTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6594A82423DB3A4700C4FAF6 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		8A7B1DE988B8E164BE2FC9E5 /* Pods-ChocoTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChocoTestTests.release.xcconfig"; path = "Target Support Files/Pods-ChocoTestTests/Pods-ChocoTestTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -328,7 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				5479EB3423D7E14400E92883 /* LoginViewModel.swift */,
-				5479EB4B23D943AF00E92883 /* ProductsViewModel.swift */,
+				5479EB4B23D943AF00E92883 /* HomeViewModel.swift */,
 				5479EB5623D94B1B00E92883 /* ProductCellViewModel.swift */,
 				5479EB6623DBB27600E92883 /* OrdersViewModel.swift */,
 				5479EB7523DBDEA400E92883 /* MyOrderViewModel.swift */,
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				5479EB5C23DA717000E92883 /* LoadingView.swift */,
+				5479EB7723DC8B6500E92883 /* OnBoardingView.swift */,
 				5479EB4D23D947DD00E92883 /* Cell */,
 				5479EAC723D525ED00E92883 /* LoginViewController.swift */,
 				5479EB4523D9351F00E92883 /* HomeViewController.swift */,
@@ -660,6 +663,7 @@
 			files = (
 				5479EB7423DBDAC400E92883 /* AbstractTableViewController.swift in Sources */,
 				5479EB3523D7E14400E92883 /* LoginViewModel.swift in Sources */,
+				5479EB7823DC8B6500E92883 /* OnBoardingView.swift in Sources */,
 				5479EB6E23DBBF6400E92883 /* ViewModelDelegate.swift in Sources */,
 				5479EB3823D7F2AB00E92883 /* UIView+Extensions.swift in Sources */,
 				5479EB1823D68D5E00E92883 /* ApiManager.swift in Sources */,
@@ -679,7 +683,7 @@
 				5479EAF723D528AC00E92883 /* Api.swift in Sources */,
 				5479EB2B23D7B95A00E92883 /* LoginRepository.swift in Sources */,
 				5479EB0F23D67DFB00E92883 /* Router.swift in Sources */,
-				5479EB4C23D943AF00E92883 /* ProductsViewModel.swift in Sources */,
+				5479EB4C23D943AF00E92883 /* HomeViewModel.swift in Sources */,
 				5479EB6523DA817E00E92883 /* MyOrderTableViewController.swift in Sources */,
 				5479EB3A23D7F37F00E92883 /* UIColor+Extensions.swift in Sources */,
 				5479EB5D23DA717000E92883 /* LoadingView.swift in Sources */,
