@@ -3,12 +3,23 @@
   <img src="https://github.com/mariaaeugenia/ChocoTest/blob/master/.assets/icon.png" alt="" width="300">
 </h3>
 
+<p align="center">
+
 [![Swift 5.1](https://img.shields.io/badge/Swift-5.1-blue.svg?style=flat)](https://swift.org)
 [![Xcode 11.3](https://img.shields.io/badge/Xcode-11.3.1-blue.svg?style=flat)](https://developer.apple.com/xcode/)
 [![Cocoapods](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg?style=flat)](https://cocoapods.org)
 
+</p>
 
 It was developed an ordering app. It fetches a list from a server and place the order in a local storage using Realm. The orders have an unique id and are sorted by their creation date (from the most recent to the oldest). And when you click in an order, you can see the list of products you had chosen.
+
+## Demo
+
+<p align="center">
+
+![](.assets/ezgif.com-resize.gif)
+
+</p>
 
 ## Features
 
